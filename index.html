@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>React Practice</title>
-  <link rel="stylesheet" href"css/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
   <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -13,17 +13,20 @@
   <script type="text/babel">
   (() => {
 
-    const name = 'daisuke';
-    ReactDOM.render(
-    //<p>Hello! {name.toUpperCase()}</p>,
-    //<p>Hello!</p><p>World</p>,
-    <div>
-      <p>Hello!</p>
-      <hr/>
-      <p>World</p>
-      </div>,
+    function showMessage() {
+      alert('Hello');
+    }
 
-    document.getElementById('root')
+    ReactDOM.render(
+      //<div className="box"></div>,
+      // <div style={{width:100, height:100, backgroundColor: 'tomato'}}
+      // onClick="showMessage"></div>,
+      // <div style={{width:100, height:100, backgroundColor: 'tomato'}}
+      // onClick="{showMessage}"></div>,
+      <div style={{width:100, height:100, backgroundColor: 'tomato'}}
+      onClick={showMessage}></div>,
+
+      document.getElementById('root')
     );
   })();
   </script>
