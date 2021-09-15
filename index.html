@@ -13,19 +13,23 @@
   <script type="text/babel">
   (() => {
 
-    function showMessage() {
-      alert('Hello');
+    // function Counter() {
+    //   return <div>0</div>
+    // }
+    function Counter(props) {
+      return <div>0 {props.color}</div>
     }
+    // function Counter(props) {
+    //   props.color = 'red';
+    //   return <div>0 {props.color}</div>
+    // } //propsはプロパティのこと
 
     ReactDOM.render(
-      //<div className="box"></div>,
-      // <div style={{width:100, height:100, backgroundColor: 'tomato'}}
-      // onClick="showMessage"></div>,
-      // <div style={{width:100, height:100, backgroundColor: 'tomato'}}
-      // onClick="{showMessage}"></div>,
-      <div style={{width:100, height:100, backgroundColor: 'tomato'}}
-      onClick={showMessage}></div>,
-
+      <div>
+        <Counter color="tomato"/>
+        <Counter color="skyblue"/>
+        <Counter color="limegreen"/>
+      </div>,
       document.getElementById('root')
     );
   })();
