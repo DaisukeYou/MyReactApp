@@ -13,36 +13,33 @@
   <script type="text/babel">
   (() => {
 
-    function Counter(props) {
-
-      // function countUp() {
-      //   alert('count up!')
-      // }
-      // function countUp(color) {
-      //   alert(color)
-      // }
-      function countUp(e, color) {
-        e.preventDefault();
-        alert(color);
+    class Counter extends React.Component {
+      constructor(props) {
+          super(props);
+          this.state = {
+            count: 0,
+          };
+          this.countUp = this.countUp.bind(this);
       }
-
-      // return (
-      //   <li style={{backgroundColor:props.color}} onClick={countUp}>
-      //     0
-      //   </li>
-      //   );
-      // return (
-      //   <li style={{backgroundColor:props.color}} onClick={() => countUp(props.color)}>
-      //     0
-      //   </li>
-      //   );
-      return (
-        <li style={{backgroundColor:props.color}}>
-          <a href="#" onClick={e => countUp(e, props.color)}>
-          0
-          </a>
-        </li>
+      countUp() {
+        //this.state.count = this.state.count + 1;
+        // this.setState({
+        //   count: this.state.count + 1
+        // });
+        this.setState(prevState => {
+          return {
+            count: prevState.count + 1
+          };
+        });
+      }
+      render() {
+        //countUpを括弧なしで呼ぶとメソッドの中ではthisがundefinedになってしまう
+        return (
+          <li style={{backgroundColor:this.props.color}} onClick={this.countUp}> 
+            {this.state.count}
+          </li>
         );
+      }
     }
 
     ReactDOM.render(
